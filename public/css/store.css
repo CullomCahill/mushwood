@@ -1,0 +1,116 @@
+.store {
+  min-height: 100vh;
+  padding: var(--spacing-xxl) 0;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.productImage {
+  width: 100%;
+  aspect-ratio: 1;
+  position: relative;
+  background-color: #f5f5f5;
+  margin-bottom: var(--spacing-md);
+  overflow: hidden;
+}
+
+.productImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  text-align: center;
+}
+
+.productTitle {
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+}
+
+.productDescription {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-xs);
+}
+
+.productPrice {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text);
+  letter-spacing: 1px;
+  margin-top: var(--spacing-xs);
+}
+
+.buyButton {
+  padding: var(--spacing-xs) var(--spacing-md);
+  border: 1px solid var(--color-text);
+  background-color: #ffffff;
+  color: var(--color-text);
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: var(--spacing-sm);
+  width: 100%;
+}
+
+.buyButton:hover {
+  background-color: var(--color-text);
+  color: #ffffff;
+}
+
+@media (max-width: 1024px) {
+  .productGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .store {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .productGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+}
