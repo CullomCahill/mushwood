@@ -1,7 +1,9 @@
 # NOW
-- Push to github repo
-- Launch site on vercel
+- Fix ornament pic
 - Learn about Stripe
+- Redirect mushroomwoodworker.com as well
+- Set up dev site through vercel
+
 
 # NEXT
 - Sign up for Stripe API key
