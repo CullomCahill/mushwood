@@ -8,6 +8,27 @@ test('has title', async ({ page }) => {
   await expect(page).toHaveTitle("MushWood - Handcrafted Mushroom Woodworking - MushWood");
 });
 
+
+// About link works
+test('about link works', async ({ page }) => {
+  await page.goto('/');
+  // Go click on the about link from the homepage
+  await page.getByRole('link', {name: 'about'}).click();
+  // expect it to take you to the about
+  await expect(page).toHaveURL('/about');
+  await expect(page.getByRole( 'heading', {name: 'about'})).toBeVisible()
+})
+
+// Store link works
+test('store link works', async ({ page }) => {
+  await page.goto('/');
+  // Go click on the about link from the homepage
+  await page.getByRole('link', {name: 'store'}).click();
+  // expect it to take you to the about
+  await expect(page).toHaveURL('/store');
+  await expect(page.getByRole( 'heading', {name: 'store'})).toBeVisible()
+})
+
 // Store link from home page
 test('store link', async ({ page }) => {
   await page.goto('/');
@@ -37,26 +58,6 @@ test('homepage loads and nav links', async ({ page }) => {
     // All nav links are visibile on home page
     await expect(page.getByRole('link', {name: 'store'})).toBeVisible();
     await expect(page.getByRole('link', {name: 'about'})).toBeVisible();
-})
-
-// About link works
-test('about link works', async ({ page }) => {
-    await page.goto('/');
-    // Go click on the about link from the homepage
-    await page.getByRole('link', {name: 'about'}).click();
-    // expect it to take you to the about
-    await expect(page).toHaveURL('/about');
-    await expect(page.getByRole( 'heading', {name: 'about'})).toBeVisible()
-})
-
-// Store link works
-test('store link works', async ({ page }) => {
-    await page.goto('/');
-    // Go click on the about link from the homepage
-    await page.getByRole('link', {name: 'store'}).click();
-    // expect it to take you to the about
-    await expect(page).toHaveURL('/store');
-    await expect(page.getByRole( 'heading', {name: 'store'})).toBeVisible()
 })
 
 // Link back to home page works from store

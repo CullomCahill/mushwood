@@ -16,6 +16,11 @@ exports.LoginPage = class LoginPage {
         
     }
 
+    // remember: don't need to start with const or function, because this is a method
+    // that belongs to the LoginPage class and exists within it
+    // outside a class you need const/function to decalre things
+    // inside a class you're just adding methods and properties to class definition
+    // a class has its own syntax rules
     async gotoLoginPage(){
         await this.page.goto('https://the-internet.herokuapp.com/login')
     }
