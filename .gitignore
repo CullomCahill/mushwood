@@ -38,3 +38,5 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+/html_pages

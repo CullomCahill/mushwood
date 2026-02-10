@@ -5,19 +5,24 @@ in the page.js files we are:
 - the test then can execute those functions
 */
 
-exports.homePage = class homePage {
+exports.navigation = class navigation {
     // locators, find the things you need:
     constructor(page) {
         this.page = page
         // here you're defining the methods:
         this.aboutLink = page.getByRole('link', { name: 'About' })
         this.storeLink = page.getByRole('link', { name: 'Store' })
+        this.homeLink = page.getByRole('link', { name: 'Home'})
     }
 
     // actions - define the functions
-
     async gotoHomePage() {
         await this.page.goto('/') //if you want to leave home page hardcoded
+    }
+
+    // click home
+    async clickHome(){
+        await this.homeLink.click()
     }
 
     // click about page 
