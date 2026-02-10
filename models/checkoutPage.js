@@ -13,9 +13,12 @@ exports.checkout = class checkout{
     async gotoCheckout(){
         await this.page.goto('/checkout/1')
     }
-    async fillEmail(){
+
+    // this sets up 'myemail' as default parameter 
+    // but you can override if you put something else in
+    async fillEmail(email = 'myemail@gmail.com'){
         await this.emailBox.click()
-        await this.emailBox.fill('myemail@gmail.com')
+        await this.emailBox.fill(email)
     }
     async proceedToPayment(){
         await this.paymentButton.click()
