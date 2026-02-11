@@ -24,5 +24,3 @@ test('image exists on about page', async ({page}) => {
     await aboutPage.gotoAbout()
     await expect(aboutPage.image).toBeVisible()
 })
-
-test('my test')
