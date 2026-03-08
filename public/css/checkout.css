@@ -62,6 +62,15 @@
   margin-top: var(--spacing-sm);
 }
 
+.inquireNote {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--color-text-light);
+  line-height: 1.8;
+  padding: var(--spacing-md) 0;
+  border-top: 1px solid var(--color-border);
+}
+
 .checkoutForm {
   display: flex;
   flex-direction: column;
@@ -91,9 +100,20 @@
   transition: border-color 0.2s ease;
 }
 
-.formGroup input:focus {
+.formGroup input:focus,
+.formGroup textarea:focus {
   outline: none;
   border-color: var(--color-text);
+}
+
+.formGroup textarea {
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  background-color: #ffffff;
+  transition: border-color 0.2s ease;
+  resize: vertical;
 }
 
 .buyButton,

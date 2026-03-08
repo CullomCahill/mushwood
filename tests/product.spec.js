@@ -5,7 +5,7 @@ test('has title', async ({ page }) => {
   await page.goto('/'); //baseURL set up in playwright.config.js for mushwood.art
 
   // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle("MushWood - Handcrafted Mushroom Woodworking - MushWood");
+  await expect(page).toHaveTitle("Mushroom Woodworker - Handcrafted Mushroom Woodworking");
 });
 
 
@@ -37,7 +37,7 @@ test('store link', async ({ page }) => {
   await page.getByRole('link', { name: 'Store' }).click();
 
   // Expects page to have a heading with the name of Installation.
-  await expect(page).toHaveTitle("Store - MushWood");
+  await expect(page).toHaveTitle("Store - Mushroom Woodworker");
   await expect(page).toHaveURL('/store');
 });
 

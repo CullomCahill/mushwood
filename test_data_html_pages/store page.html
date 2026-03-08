@@ -1,0 +1,125 @@
+<html lang="en"><head><style>body {transition: opacity ease-in 0.2s; } 
+  body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store - Mushroom Woodworker</title>
+    <link rel="stylesheet" href="/css/globals.css">
+    <link rel="stylesheet" href="/css/navigation.css">
+    <link rel="stylesheet" href="/css/store.css">
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-container">
+        <a href="/" class="logo">Mushroom Woodworker</a>
+        <div class="links">
+          <a href="/" class="">Home</a>
+          <a href="/about" class="">About</a>
+          <a href="/store" class="active">Store</a>
+        </div>
+      </div>
+    </nav>
+    <main>
+      
+      <div class="store">
+        <div class="container">
+          <h1 class="title">Store</h1>
+          <div class="productGrid">
+            
+              <div class="productCard">
+                <div class="productImage">
+                  <img src="/images/lamp1.jpg" alt="Mushroom lamp 1">
+                </div>
+                <div class="productInfo">
+                  <h3 class="productTitle">Mushroom lamp 1</h3>
+                  <p class="productDescription">Mycelium based shade and hickory base</p>
+                  <p class="productPrice">$324</p>
+                  <form action="/checkout" method="POST" style="margin-top: var(--spacing-sm);">
+                    <input type="hidden" name="productId" value="1">
+                    <button type="submit" class="buyButton">Buy Now</button>
+                  </form>
+                </div>
+              </div>
+            
+              <div class="productCard">
+                <div class="productImage">
+                  <img src="/images/ikea_standing_lamp.jpeg" alt="Repurposed Standing floor Lamp">
+                </div>
+                <div class="productInfo">
+                  <h3 class="productTitle">Repurposed Standing floor Lamp</h3>
+                  <p class="productDescription">Repurposed Standing floor Lamp with mycelium lampshade</p>
+                  <p class="productPrice">$180</p>
+                  <form action="/checkout" method="POST" style="margin-top: var(--spacing-sm);">
+                    <input type="hidden" name="productId" value="2">
+                    <button type="submit" class="buyButton">Buy Now</button>
+                  </form>
+                </div>
+              </div>
+            
+              <div class="productCard">
+                <div class="productImage">
+                  <img src="/images/desklamp.jpeg" alt="Desk lamp">
+                </div>
+                <div class="productInfo">
+                  <h3 class="productTitle">Desk lamp</h3>
+                  <p class="productDescription">Ikea lamp from the thrift store repurposed</p>
+                  <p class="productPrice">$165</p>
+                  <form action="/checkout" method="POST" style="margin-top: var(--spacing-sm);">
+                    <input type="hidden" name="productId" value="3">
+                    <button type="submit" class="buyButton">Buy Now</button>
+                  </form>
+                </div>
+              </div>
+            
+              <div class="productCard">
+                <div class="productImage">
+                  <img src="/images/flower_pot1.jpeg" alt="Flower pot">
+                </div>
+                <div class="productInfo">
+                  <h3 class="productTitle">Flower pot</h3>
+                  <p class="productDescription">Mycelium Flower Pot</p>
+                  <p class="productPrice">$60</p>
+                  <form action="/checkout" method="POST" style="margin-top: var(--spacing-sm);">
+                    <input type="hidden" name="productId" value="4">
+                    <button type="submit" class="buyButton">Buy Now</button>
+                  </form>
+                </div>
+              </div>
+            
+              <div class="productCard">
+                <div class="productImage">
+                  <img src="/images/candle_holders.jpeg" alt="Mycelium Candle Holders">
+                </div>
+                <div class="productInfo">
+                  <h3 class="productTitle">Mycelium Candle Holders</h3>
+                  <p class="productDescription">Floating candle holders made from mycelium</p>
+                  <p class="productPrice">$30</p>
+                  <form action="/checkout" method="POST" style="margin-top: var(--spacing-sm);">
+                    <input type="hidden" name="productId" value="5">
+                    <button type="submit" class="buyButton">Buy Now</button>
+                  </form>
+                </div>
+              </div>
+            
+              <div class="productCard">
+                <div class="productImage">
+                  <img src="/images/ornaments.jpg" alt="Christmas Ornaments">
+                </div>
+                <div class="productInfo">
+                  <h3 class="productTitle">Christmas Ornaments</h3>
+                  <p class="productDescription">Mushroom ornaments grown from mushrooms!</p>
+                  <p class="productPrice">$30</p>
+                  <form action="/checkout" method="POST" style="margin-top: var(--spacing-sm);">
+                    <input type="hidden" name="productId" value="6">
+                    <button type="submit" class="buyButton">Buy Now</button>
+                  </form>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    
+    </main>
+  
+  <readwise-tooltip-container></readwise-tooltip-container></body></html>

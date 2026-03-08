@@ -1,4 +1,4 @@
-# MushWood Website
+# Mushroom Woodworker Website
 
 A minimal, art gallery-style website for a mushroom woodworking business.
 
@@ -15,3 +15,8 @@ A minimal, art gallery-style website for a mushroom woodworking business.
 - Express.js
 - Node.js 18.14.0
 - Vanilla HTML/CSS/JavaScript
+
+
+## Commands
+- npx playwright test ./tests/pom_storePage.spec.js  - to run specific test
+- 

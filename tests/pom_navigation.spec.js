@@ -8,7 +8,7 @@ test('has title', async ({ page }) => {
     const navHeader = new navigation(page)
     await navHeader.gotoHomePage()
     // Expect a title to be right
-    await expect(page).toHaveTitle("MushWood - Handcrafted Mushroom Woodworking - MushWood");    
+    await expect(page).toHaveTitle("Mushroom Woodworker - Handcrafted Mushroom Woodworking");    
 });
 
 // About Link in header works
@@ -44,5 +44,5 @@ test('home link works', async ({ page }) => {
     await navHeader.clickHome()
 
     await expect(page).toHaveURL('/')
-    await expect(page).toHaveTitle("MushWood - Handcrafted Mushroom Woodworking - MushWood")
+    await expect(page).toHaveTitle("Mushroom Woodworker - Handcrafted Mushroom Woodworking")
 })
