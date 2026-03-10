@@ -5,7 +5,7 @@ test('has title', async ({ page }) => {
   await page.goto('/'); //baseURL set up in playwright.config.js for mushwood.art
 
   // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle("Mushroom Woodworker - Handcrafted Mushroom Woodworking");
+  await expect(page).toHaveTitle("Home - Mushroom Woodworker");
 });
 
 
@@ -78,10 +78,10 @@ test('store has products', async ({ page }) => {
     // remeber adding the '.' before product card tells to look for a class, otherwise its looking for an HTML tag <productCard> which doesnt exist
 
     // See that there are at least 6 products available
-    await expect(page.locator('.productCard')).toHaveCount(6);
+    await expect(page.locator('.productCard')).toHaveCount(9);
 
     // Make sure it doesn't have 5 products
-    await expect(page.locator('.productCard')).not.toHaveCount(5);
+    await expect(page.locator('.productCard')).not.toHaveCount(8);
 })
 
 // Clicking a Buy Now on product brings you to checkout

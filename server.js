@@ -85,7 +85,7 @@ app.get('/', (req, res) => {
     </div>
   `;
   
-  res.send(renderPage('Mushroom Woodworker - Handcrafted Mushroom Woodworking', content, '/', '<link rel="stylesheet" href="/css/home.css">'));
+  res.send(renderPage('Home', content, '/', '<link rel="stylesheet" href="/css/home.css">'));
 });
 
 // About page

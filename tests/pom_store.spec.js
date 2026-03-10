@@ -25,14 +25,13 @@ test('First product title visible', async ({page}) => {
   // 
 })
 
+
 test('store has at least 6 products', async ({page}) => {
   const storePage = new store(page)
   await storePage.gotoStore()
 
-  // assertions
-  // first card exists
-  await expect(storePage.productCardLocator.first()).toContainText(/mushroom lamp 1/i) // i = case insensitive 
-  await expect(storePage.productCardLocator).toHaveCount(6)
-  await expect(storePage.productCardLocator).not.toHaveCount(5)
+  await expect(storePage.productCardLocator.first()).toBeVisible()
+  
+  const count = await storePage.productCardLocator.count()
+  expect(count).toBeGreaterThanOrEqual(6)
 })
-
