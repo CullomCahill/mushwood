@@ -3,7 +3,7 @@ exports.store = class store {
         this.page = page
         // define locators
         this.buyNow = page.getByRole('button', {name: 'Buy Now'}).first()
-        this.productTitleLocator = page.getByText('MUSHROOM LAMP 1')
+        this.productTitleLocator = page.getByText('Drum Pendant')
         this.productCardLocator = page.locator('.productCard')
     }
 

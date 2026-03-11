@@ -21,7 +21,7 @@ function renderPage(title, content, currentPath, additionalCSS = '') {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${title} - MushWood</title>
+  <title>${title} - Mushroom Woodworker</title>
   <link rel="stylesheet" href="/css/globals.css">
   <link rel="stylesheet" href="/css/navigation.css">
   ${additionalCSS}
@@ -29,7 +29,7 @@ function renderPage(title, content, currentPath, additionalCSS = '') {
 <body>
   <nav class="nav">
     <div class="nav-container">
-      <a href="/" class="logo">MushWood</a>
+      <a href="/" class="logo">Mushroom Woodworker</a>
       <div class="links">
         <a href="/" class="${navActive('/')}">Home</a>
         <a href="/about" class="${navActive('/about')}">About</a>
@@ -85,7 +85,7 @@ app.get('/', (req, res) => {
     </div>
   `;
   
-  res.send(renderPage('MushWood - Handcrafted Mushroom Woodworking', content, '/', '<link rel="stylesheet" href="/css/home.css">'));
+  res.send(renderPage('Home', content, '/', '<link rel="stylesheet" href="/css/home.css">'));
 });
 
 // About page
@@ -95,10 +95,10 @@ app.get('/about', (req, res) => {
       <div class="container">
         <div class="content">
           <div class="textSection">
-            <h1 class="title">About MushWood</h1>
+            <h1 class="title">About Mushroom Woodworker</h1>
             <div class="text">
               <p>
-                MushWood (Mushroom Woodworker) is a handcrafted woodworking studio specializing in 
+                Mushroom Woodworker is a handcrafted woodworking studio specializing in 
                 unique pieces inspired by the natural beauty of mushrooms. 
                 Each piece is carefully designed and meticulously crafted to 
                 bring the organic elegance of the forest into your home.
@@ -138,18 +138,25 @@ app.get('/store', (req, res) => {
         <h1 class="title">Store</h1>
         <div class="productGrid">
           ${products.map(product => `
-            <div class="productCard">
+            <div class="productCard${product.status !== 'inStock' ? ` ${product.status}` : ''}">
               <div class="productImage">
                 <img src="${product.image}" alt="${product.title}">
+                ${product.status === 'soldOut' ? '<div class="statusBadge soldOutBadge">Sold Out</div>' : ''}
+                ${product.status === 'madeToOrder' ? '<div class="statusBadge madeToOrderBadge">Made to Order</div>' : ''}
               </div>
               <div class="productInfo">
                 <h3 class="productTitle">${product.title}</h3>
                 <p class="productDescription">${product.description}</p>
                 <p class="productPrice">$${product.price}</p>
-                <form action="/checkout" method="POST" style="margin-top: var(--spacing-sm);">
-                  <input type="hidden" name="productId" value="${product.id}">
-                  <button type="submit" class="buyButton">Buy Now</button>
-                </form>
+                ${product.status === 'inStock'
+                  ? `<form action="/checkout" method="POST" style="margin-top: var(--spacing-sm);">
+                      <input type="hidden" name="productId" value="${product.id}">
+                      <button type="submit" class="buyButton">Buy Now</button>
+                    </form>`
+                  : product.status === 'madeToOrder'
+                  ? `<a href="/inquire/${product.id}" class="buyButton inquireButton">Inquire</a>`
+                  : '<button class="buyButton soldOutButton" disabled>Sold Out</button>'
+                }
               </div>
             </div>
           `).join('')}
@@ -170,7 +177,7 @@ app.get('/checkout/:productId?', (req, res) => {
     product = getProductById(productId);
   }
   
-  if (!product) {
+  if (!product || product.status !== 'inStock') {
     return res.redirect('/store');
   }
   
@@ -277,6 +284,96 @@ app.get('/success', async (req, res) => {
   `;
   
   res.send(renderPage('Order Success', content, '/store', '<link rel="stylesheet" href="/css/checkout.css">'));
+});
+
+// Inquire page (for madeToOrder products)
+app.get('/inquire/:productId', (req, res) => {
+  const product = getProductById(req.params.productId);
+
+  if (!product || product.status !== 'madeToOrder') {
+    return res.redirect('/store');
+  }
+
+  const content = `
+    <div class="checkout">
+      <div class="container">
+        <h1 class="title">Inquire</h1>
+        <div class="checkoutContent">
+          <div class="productSummary">
+            <div class="productImage">
+              <img src="${product.image}" alt="${product.title}">
+            </div>
+            <div class="productDetails">
+              <h2 class="productTitle">${product.title}</h2>
+              <p class="productDescription">${product.description}</p>
+              <p class="productPrice">$${product.price}</p>
+            </div>
+          </div>
+          <p class="inquireNote">This piece is made to order. Each one is crafted by hand after your request. Send the form below and we'll get back to you shortly with a timeline and any details.</p>
+          <form id="inquireForm" class="checkoutForm">
+            <input type="hidden" name="product" value="${product.title}">
+            <div class="formGroup">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="formGroup">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="formGroup">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Any questions, custom requests, timeline..."></textarea>
+            </div>
+            <button type="submit" class="checkoutButton">Send Inquiry</button>
+            <p id="inquireError" style="display:none; color:#c0392b; font-size:0.9rem; text-align:center;">Something went wrong — please try again.</p>
+          </form>
+          <script>
+            document.getElementById('inquireForm').addEventListener('submit', async function(e) {
+              e.preventDefault();
+              const btn = this.querySelector('button[type="submit"]');
+              btn.textContent = 'Sending...';
+              btn.disabled = true;
+              try {
+                const res = await fetch('https://formspree.io/f/xdawkjvp', {
+                  method: 'POST',
+                  body: new FormData(this),
+                  headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                  window.location.replace('/inquire-success');
+                } else {
+                  throw new Error('Bad response');
+                }
+              } catch {
+                document.getElementById('inquireError').style.display = 'block';
+                btn.textContent = 'Send Inquiry';
+                btn.disabled = false;
+              }
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  `;
+
+  res.send(renderPage('Inquire', content, '/store', '<link rel="stylesheet" href="/css/checkout.css">'));
+});
+
+// Inquire success page
+app.get('/inquire-success', (req, res) => {
+  const content = `
+    <div class="success">
+      <div class="container">
+        <div class="successContent">
+          <h1 class="title">Message Sent</h1>
+          <p class="message">Thanks for reaching out! We'll get back to you within a few days to discuss your order.</p>
+          <a href="/store" class="backButton">Back to Store</a>
+        </div>
+      </div>
+    </div>
+  `;
+
+  res.send(renderPage('Inquiry Sent', content, '/store', '<link rel="stylesheet" href="/css/checkout.css">'));
 });
 
 app.listen(PORT, () => {
