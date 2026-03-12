@@ -29,8 +29,6 @@
 
 ## Tests
 
-- [ ] Delete `tests/product.spec.js` — everything covered by POM tests, has duplicate tests and a stale comment
-- [ ] Remove unused `navigation` import from `pom_store.spec.js` and `pom_checkout.spec.js`
 - [ ] Add test: `soldOut` product shows a disabled Sold Out button (not Buy Now)
 - [ ] Add test: `madeToOrder` product shows Inquire button/link (not Buy Now)
 - [ ] Add test: status badges render on correct products (Sold Out badge, Made to Order badge)

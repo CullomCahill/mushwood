@@ -1,6 +1,4 @@
 import { test, expect } from '@playwright/test';
-import { store } from '../models/storePage.js'
-import { navigation } from '../models/navigation.js'
 import { about } from '../models/aboutPage.js'
 
 test('title exists on about page', async ({page}) => {
