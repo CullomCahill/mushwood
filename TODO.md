@@ -29,8 +29,6 @@
 
 ## Tests
 
-- [ ] Add test: `soldOut` product shows a disabled Sold Out button (not Buy Now)
-- [ ] Add test: `madeToOrder` product shows Inquire button/link (not Buy Now)
 - [ ] Add test: status badges render on correct products (Sold Out badge, Made to Order badge)
 - [ ] Add test: clicking Inquire on a madeToOrder product navigates to `/inquire/:productId`
 - [ ] Add test: `/inquire/:productId` page loads correctly (heading, form fields visible)

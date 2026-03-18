@@ -16,7 +16,6 @@ exports.store = class store {
     }
 
 
-
     async gotoStore(){
         await this.page.goto('/store')
     }

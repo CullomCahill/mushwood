@@ -3,6 +3,7 @@ import { store } from '../models/storePage.js'
 
 
 
+
 // write your tests
 test('click buy now button', async ({ page }) => {
   // pull in the class
@@ -74,3 +75,22 @@ test('`soldOut` product shows a disabled Sold Out button (not Buy Now)', async (
   await expect(soldOutButton).toHaveText('Sold Out')
 })
 
+
+
+// Status badges render on the correct products
+test('status badges render on correct products', async ({page}) => {
+  // declare storePage
+  const storePage = new store(page)
+  // go to the store page
+  await storePage.gotoStore()
+
+
+  // from soldOutCard in model, find the first instance of a sold out card, 
+    // then within that card (class), locate the class that is = '.statusBadge.soldOutBadge'
+  const soldOutBadge = storePage.soldOutCard.first().locator('.statusBadge.soldOutBadge') 
+  // Then assert that that badge should exist (bevisible) and say sold out
+  await expect(soldOutBadge).toBeVisible()
+  await expect(soldOutBadge).toHaveText('Sold Out')
+
+
+})
