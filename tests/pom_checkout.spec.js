@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test'
 import { checkout } from '../models/checkoutPage.js'
-import { navigation } from '../models/navigation.js'
-import { store } from '../models/storePage.js'
+
 
 // so test takes 2 arguments, name, then the test
 // which here we're setting up as an async function targeted at page
@@ -43,3 +42,4 @@ test('successful checkout', async ({page}) => {
     await expect(page).toHaveURL(/checkout.stripe.com/)
     await expect(page.locator('.ReadOnlyFormField-title')).toContainText('myemail@gmail.com')
 })
+
