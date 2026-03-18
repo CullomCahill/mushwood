@@ -98,20 +98,17 @@ app.get('/about', (req, res) => {
             <h1 class="title">About Mushroom Woodworker</h1>
             <div class="text">
               <p>
-                Mushroom Woodworker is a handcrafted woodworking studio specializing in 
-                unique pieces inspired by the natural beauty of mushrooms. 
-                Each piece is carefully designed and meticulously crafted to 
-                bring the organic elegance of the forest into your home.
+                I"m Cullom, the Mushroom Woodworker.  Exploring what happens when you pair traditional woodworking with the quiet intelligence of mycelium.  
+                Each piece is grown from reishi mycelium and hemp, right alongside the sawdust it came from.  Nothing wasted.  That's kind of the whole point.
               </p>
               <p>
-                Our work combines traditional woodworking techniques with 
-                contemporary design sensibilities, creating functional art 
-                that celebrates the intricate forms found in nature.
+                I believe we can grow the future.  In nature, there's no such thing as trash.  Everything that ends its life becomes the start of something else.  
+                Biomaterials like mycelium composites are one of the most compelling examples we have of that principle made tangible: a material that is grown, 
+                not manufactured, and returns to the earth when it's done.  These pieces are my art-based exploration of that idea.
               </p>
               <p>
-                Every piece is one-of-a-kind, made with sustainably sourced 
-                materials and finished with natural oils that enhance the 
-                wood's natural character.
+                I'm still relatively new to mycology, still learning, still failing.  But the vision is clear: a future where the materials we build with are grown 
+                locally, leave nothing behind, and connect us back to the natural systems we're part of.  
               </p>
             </div>
           </div>
