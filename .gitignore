@@ -7,6 +7,7 @@
 
 # testing
 /coverage
+/test_data_html_pages
 
 # production
 /build
@@ -41,3 +42,6 @@ node_modules/
 
 /html_pages
 /POM_examples
+
+/ignore
+PAYMENT_SETUP.md

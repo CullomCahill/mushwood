@@ -22,6 +22,7 @@ function renderPage(title, content, currentPath, additionalCSS = '') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${title} - Mushroom Woodworker</title>
+  <link rel="icon" type="image/jpeg" href="/images/mycelium.jpg">
   <link rel="stylesheet" href="/css/globals.css">
   <link rel="stylesheet" href="/css/navigation.css">
   ${additionalCSS}
@@ -98,7 +99,7 @@ app.get('/about', (req, res) => {
             <h1 class="title">About Mushroom Woodworker</h1>
             <div class="text">
               <p>
-                I"m Cullom, the Mushroom Woodworker.  Exploring what happens when you pair traditional woodworking with the quiet intelligence of mycelium.  
+                I'm Cullom, the Mushroom Woodworker.  Exploring what happens when you pair woodworking with the quiet intelligence of mycelium.  
                 Each piece is grown from reishi mycelium and hemp, right alongside the sawdust it came from.  Nothing wasted.  That's kind of the whole point.
               </p>
               <p>
