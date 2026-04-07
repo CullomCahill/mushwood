@@ -42,3 +42,6 @@ node_modules/
 
 /html_pages
 /POM_examples
+
+/ignore
+PAYMENT_SETUP.md
