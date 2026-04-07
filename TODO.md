@@ -1,23 +1,8 @@
 # MushWood To-Do
-# NEXT RELEASE
-- Fix ornament pic
-- Learn about Stripe
-- Redirect mushroomwoodworker.com as well
-- Set up dev site through vercel
-- Add new pics and products
-- Add Tiktok and instagram links in footer 
-- - and add test
--  
 
 
-# FUTURE
-- Sign up for Stripe API key
-- rewrite about page
-- General cleanups
-- More pics, more products
-- Cart functionality 
 
-
+- add cart to add products to
 
 # E2E
 - Add back in the other two browsers once have suite developed
