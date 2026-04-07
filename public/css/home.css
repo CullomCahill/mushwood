@@ -77,9 +77,13 @@
     height: 60vh;
     min-height: 400px;
   }
-  
+
+  .hero {
+    margin-bottom: var(--spacing-md);
+  }
+
   .featured {
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-md) 0;
   }
   
   .productGrid {

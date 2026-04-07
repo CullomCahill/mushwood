@@ -47,7 +47,7 @@
 
 .productTitle {
   font-size: 1.1rem;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--color-text);
@@ -147,15 +147,27 @@
   .store {
     padding: var(--spacing-xl) 0;
   }
-  
+
   .title {
     font-size: 2rem;
     letter-spacing: 2px;
     margin-bottom: var(--spacing-lg);
   }
-  
+
   .productGrid {
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
+  }
+
+  .productTitle {
+    font-size: 1.2rem;
+  }
+
+  .productDescription {
+    font-size: 1rem;
+  }
+
+  .productPrice {
+    font-size: 1.1rem;
   }
 }
